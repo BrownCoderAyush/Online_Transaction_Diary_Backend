@@ -34,8 +34,8 @@ const prepareAndStartServer = ()=>{
     //     password : "Ayush_18feb2002"
     // }) 
     // console.log(res);
-    const res = await trans.getAllTransactionsOfUser(2);
-    console.log(res);
+    // const res = await trans.getAllTransactionsOfUser(2);
+    // console.log(res);
     // await user.destroy({
     //     where:{
     //         id : 1

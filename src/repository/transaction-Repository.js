@@ -67,15 +67,17 @@ class TransactionRepository {
 
     async getAllTransactionsOfUser(id){
         try {
-            const user1 = await User.findByPk(id);
-            // console.log(user1);
-            const transactions = await user1.getTransactions();
+            const user = await User.findByPk(id);
+        
+            const transactions = await user.getTransactions();
             return transactions;
         } catch (error) {
             console.log("Something went wrong on repository layer");
             throw error;
         }
     }
+
+
 
 
    
