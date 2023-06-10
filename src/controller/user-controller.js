@@ -6,7 +6,8 @@ const signUp = async (req,res)=>{
     try {
         const response = await userService.signUp({
             username : req.body.username , 
-            password : req.body.password
+            password : req.body.password,
+            fullname : req.body.fullname
         })
         return res.status(201).json({
             success : true , 

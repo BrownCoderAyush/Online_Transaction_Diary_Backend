@@ -1,4 +1,4 @@
-const User = require('../models/user.js');
+const {user} = require('../models/index');
 
 
 
@@ -8,14 +8,14 @@ class UserRepository{
     }
     async signUp(data) {
         try {
-
-            const user = await User.create({
+        
+            const User = await user.create({
                 username: data.username,
                 password: data.password,
                 fullname: data.fullname
             });
            
-            return user;
+            return User;
            
         } catch (error) {
             console.log("Something went wrong on repository layer");
