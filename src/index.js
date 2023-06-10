@@ -5,8 +5,9 @@ const app = express();
 
 const db = require('./models/index');
 const APIRoutes = require('./routes/index.js');
-const {user} = require('./models/index.js');
-
+// const {user} = require('./models/index.js');
+const user_repo = require('./repository/user-Repository');
+const user = new user_repo();
 
 const PORT = 3000;
 
@@ -25,6 +26,11 @@ const prepareAndStartServer = ()=>{
     //     password : "Ayush" ,
     //     fullname : "Ayush Chopra"
     // });
+    // const res = await user.getByUsername({
+    //     username : "ayushchopra",
+    //     password : "Ayush_18feb2002"
+    // }) 
+    // console.log(res);
     })
 }
 

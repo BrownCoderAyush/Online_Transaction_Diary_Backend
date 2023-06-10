@@ -6,9 +6,8 @@ class UserRepository{
     constructor(){
 
     }
-    async signUp(data) {
+    async create(data) {
         try {
-        
             const User = await user.create({
                 username: data.username,
                 password: data.password,
@@ -19,10 +18,24 @@ class UserRepository{
            
         } catch (error) {
             console.log("Something went wrong on repository layer");
-            throw {error};
+            throw error;
         }
     }
 
+
+    async getByUsername({username}){
+        try {
+            const User = await user.findOne({
+                where:{
+                    username
+                }
+            });
+            return User.dataValues;
+        } catch (error) {
+            console.log("Something went wrong on repository layer");
+            throw error;
+        }
+    }
  
     
 }

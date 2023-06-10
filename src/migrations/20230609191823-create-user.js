@@ -11,17 +11,17 @@ module.exports = {
       },
       username: {
         type: Sequelize.STRING,
-        required : true , 
+        allowNull : false , 
         unique : true
       },
       password: {
         type: Sequelize.STRING,
-        required : true , 
+        allowNull : false , 
         unique : true
       },
       fullname: {
         type: Sequelize.STRING,
-        required : true , 
+        allowNull : false , 
       },
       createdAt: {
         allowNull: false,
