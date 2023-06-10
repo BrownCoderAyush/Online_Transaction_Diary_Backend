@@ -213,7 +213,7 @@
 {
     "TransactionType":"received"
 }
-
+```
 **Response:**
 
 ```json
@@ -268,6 +268,7 @@
 {
     "x-access-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJwaHlzaWNzYXBpZW4iLCJwYXNzd29yZCI6IiQyYiQxMCQyR01LOUxYRFdRWS82VjhQLkM1ajRPM25CL3d6S3NwY3lEdmlhVWJOWlV5WFR1RXFqZUo2MiIsImZ1bGxuYW1lIjoiQXl1c2ggU2luZ2giLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTEwVDE3OjU4OjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA2LTEwVDE3OjU4OjAwLjAwMFoiLCJpYXQiOjE2ODY0MTk5ODcsImV4cCI6MTY4NjUwNjM4N30.26mtWdwyfPOO_0q2P5gmfAACDolEZ29IDckemmJMdCU"
 }
+```
 
 **Response:**
 
