@@ -1,11 +1,14 @@
 const JWT = require('jsonwebtoken');
 const UserRepository = require('../repository/user-Repository.js');
+const {JWT_KEY} = require('../config/serverConfig.js');
 const userRepo = new UserRepository();
+
+
 const isAuthenticated = async( req, res , next)=>{
 
     try {
         const token = req.headers['x-access-token'];
-        const response = JWT.verify(token , "Secret_Key");
+        const response = JWT.verify(token , JWT_KEY);
         console.log( "response while authenticating", response);
         const user = await userRepo.getById(response.id);
         if(!user){
