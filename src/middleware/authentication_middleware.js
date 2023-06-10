@@ -9,7 +9,6 @@ const isAuthenticated = async( req, res , next)=>{
     try {
         const token = req.headers['x-access-token'];
         const response = JWT.verify(token , JWT_KEY);
-        console.log( "response while authenticating", response);
         const user = await userRepo.getById(response.id);
         if(!user){
             throw {

@@ -3,7 +3,6 @@ const UserService = require('../service/user-service.js');
 const userService = new UserService();
 
 const signUp = async (req,res)=>{
-    console.log("inside signUp");
     try {
         const response = await userService.signUp({
             username : req.body.username , 
@@ -33,7 +32,6 @@ const signUp = async (req,res)=>{
 
 const login = async (req,res)=>{
     try {
-        console.log("insdie login");
         const response = await userService.login({
             username : req.body.username , 
             password : req.body.password,
