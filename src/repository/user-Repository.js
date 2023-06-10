@@ -37,6 +37,15 @@ class UserRepository{
         }
     }
  
+    async getById(id){
+        try {
+            const User = await user.findByPk(id);
+            return User;
+        } catch (error) {
+            console.log("Something went wrong on repository layer");
+            throw error;
+        }
+    }
     
 }
 
