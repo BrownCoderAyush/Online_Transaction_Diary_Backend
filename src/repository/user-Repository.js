@@ -1,4 +1,4 @@
-const {user} = require('../models/index');
+const {User} = require('../models/index');
 
 
 
@@ -8,13 +8,13 @@ class UserRepository{
     }
     async create(data) {
         try {
-            const User = await user.create({
+            const user = await User.create({
                 username: data.username,
                 password: data.password,
                 fullname: data.fullname
             });
            
-            return User;
+            return user;
            
         } catch (error) {
             console.log("Something went wrong on repository layer");
@@ -25,12 +25,12 @@ class UserRepository{
 
     async getByUsername({username}){
         try {
-            const User = await user.findOne({
+            const user = await User.findOne({
                 where:{
                     username
                 }
             });
-            return User.dataValues;
+            return user.dataValues;
         } catch (error) {
             console.log("Something went wrong on repository layer");
             throw error;
@@ -39,8 +39,8 @@ class UserRepository{
  
     async getById(id){
         try {
-            const User = await user.findByPk(id);
-            return User;
+            const user = await User.findByPk(id);
+            return user;
         } catch (error) {
             console.log("Something went wrong on repository layer");
             throw error;

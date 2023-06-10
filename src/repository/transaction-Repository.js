@@ -1,5 +1,7 @@
-const {  transaction } = require('../models/index.js');
-
+const {  Transaction } = require('../models/index.js');
+const userRepository = require('./user-Repository.js');
+const {User} = require('../models/index.js');
+const userRepo = new userRepository();
 
 
 class TransactionRepository {
@@ -8,7 +10,7 @@ class TransactionRepository {
     }
     async create(data) {
         try {
-            const Transaction = await transaction.create({
+            const transaction = await Transaction.create({
                 Amount: data.Amount,
                 TransactionType: data.TransactionType,
                 PartyName: data.PartyName,
@@ -16,7 +18,7 @@ class TransactionRepository {
             });
             
 
-            return Transaction;
+            return transaction;
            
         } catch (error) {
             console.log("Something went wrong on repository layer");
@@ -26,7 +28,7 @@ class TransactionRepository {
 
     async delete(Id) {
         try {
-            await transaction.destroy({
+            await Transaction.destroy({
                 where: {
                     id: Id
                 }
@@ -42,7 +44,7 @@ class TransactionRepository {
     async update(id , data){
         try {
             
-            await transaction.update(data,{ where: { id: id } });
+            await Transaction.update(data,{ where: { id: id } });
             const updatedTransaction = await this.findById(id);
             return updatedTransaction;
         } catch (error) {
@@ -54,8 +56,8 @@ class TransactionRepository {
     async findById(Id) {
         try {
 
-            const employee = await transaction.findByPk(Id);
-            return employee;
+            const transaction = await Transaction.findByPk(Id);
+            return transaction;
 
         } catch (error) {
             console.log("Something went wrong on repository layer");
@@ -63,6 +65,17 @@ class TransactionRepository {
         }
     }
 
+    async getAllTransactionsOfUser(id){
+        try {
+            const user1 = await User.findByPk(id);
+            // console.log(user1);
+            const transactions = await user1.getTransactions();
+            return transactions;
+        } catch (error) {
+            console.log("Something went wrong on repository layer");
+            throw error;
+        }
+    }
 
 
    

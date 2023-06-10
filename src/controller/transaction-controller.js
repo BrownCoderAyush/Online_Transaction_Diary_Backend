@@ -30,7 +30,29 @@ const create = async(req,res)=>{
     }
 }
 
+const getTransactions = async(req,res)=>{
+    try {
+        const response = await transactionService.transactionsOfUser(req.user.id);
+        return res.status(201).json({
+            success : true , 
+            message : "Successfully fetched transactions of a user" , 
+            data : response ,
+            err : {
+                
+            }
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(400).json({
+            data : {},
+            err: error ,
+            message : "Something went wrong while fetching transactions of a user" ,
+            success : false
+        })
+    }
+}
 
 module.exports = {
-    create
+    create,
+    getTransactions
 }

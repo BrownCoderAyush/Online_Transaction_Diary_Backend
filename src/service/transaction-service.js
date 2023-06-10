@@ -15,6 +15,16 @@ class TransactionService{
         }
     }
 
+    async transactionsOfUser(id){
+        try {
+            const transaction = await this.transactionRepository.getAllTransactionsOfUser(id);
+            return transaction;
+        } catch (error) {
+            console.log("something went wrong in service layer");
+            throw error ;
+        }
+    }
+
 
 
 }

@@ -5,9 +5,12 @@ const app = express();
 
 const db = require('./models/index');
 const APIRoutes = require('./routes/index.js');
-// const {user} = require('./models/index.js');
-const user_repo = require('./repository/user-Repository');
-const user = new user_repo();
+const {user} = require('./models/index.js');
+// const user_repo = require('./repository/user-Repository');
+const trans_repo = require('./repository/transaction-Repository');
+// const user = new user_repo();
+const trans = new trans_repo();
+
 
 const PORT = 3000;
 
@@ -31,6 +34,13 @@ const prepareAndStartServer = ()=>{
     //     password : "Ayush_18feb2002"
     // }) 
     // console.log(res);
+    const res = await trans.getAllTransactionsOfUser(2);
+    console.log(res);
+    // await user.destroy({
+    //     where:{
+    //         id : 1
+    //     }
+    // })
     })
 }
 

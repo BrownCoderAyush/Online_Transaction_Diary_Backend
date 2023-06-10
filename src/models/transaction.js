@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.user , {
+      this.belongsTo(models.User , {
         foreignKey : 'userId',
         onDelete : 'CASCADE'
       })
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     userId : DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'transaction',
+    modelName: 'Transaction',
   });
   return transaction;
 };
